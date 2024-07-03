@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './LoginPage.module.css';
 import logo from '/src/assets/logo.png';
 
-function ListGroup() {
+function LoginPage() {
   useEffect(() => {
     document.body.classList.add(styles.body);
 
@@ -28,4 +28,4 @@ function ListGroup() {
   );
 }
 
-export default ListGroup;
+export default LoginPage;

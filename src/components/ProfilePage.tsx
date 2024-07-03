@@ -1,38 +1,23 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDribbble, faTwitter, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import React from 'react';
 import styles from './ProfilePage.module.css'; // Ensure this path is correct
 
 const ProfilePage: React.FC = () => {
-  const [profilePhoto, setProfilePhoto] = useState<string>('/src/assets/default-profile-photo.jpg'); // Replace with your default photo path
-
-  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (typeof reader.result === 'string') {
-          setProfilePhoto(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  // You can set the profile photo statically if needed
+  const profilePhoto = '/src/assets/default-profile-photo.jpg'; // Replace with your default photo path
 
   const handleLogout = () => {
     // Implement your logout logic here
-    alert('Logout functionality will be implemented here.');
+    // For example, redirecting to logout endpoint or clearing session
+    console.log('Logged out'); // Placeholder for logout action
   };
 
   return (
     <div className={styles.profilePage}>
       <div className={styles.card}>
         <img src={profilePhoto} alt="Profile" className={styles.profilePhoto} />
-        <input type="file" onChange={handlePhotoChange} className={styles.photoInput} />
         <h1>Harsh Raj A</h1>
-        <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
-         </div>
-      
+        <button className={styles.logoutButton} onClick={handleLogout}>Log Out</button>
+      </div>
     </div>
   );
 }
